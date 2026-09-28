@@ -11,6 +11,7 @@ const utils = require('../utils');
 let client;
 
 const connection = require('./mongo/connection');
+const apiUsers = require('../api/users');
 
 const mongoModule = module.exports;
 
@@ -231,3 +232,6 @@ require('./mongo/list')(mongoModule);
 require('./mongo/transaction')(mongoModule);
 
 require('../promisify')(mongoModule, ['client', 'sessionStore']);
+
+// GT probe (BC): data layer reaching into the api layer.
+module.exports.gtApiUsersHandle = () => apiUsers;
