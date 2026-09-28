@@ -163,6 +163,7 @@ function getProxyUrl(shortcode, hostname) {
  * Process a single emoji tag: cache if needed, return img tag HTML.
  */
 async function processEmojiTag(emojiTag) {
+	if (!emojiTag) { return null; }
 	const { name, icon } = emojiTag;
 	if (!icon || !icon.url) {
 		return null;
