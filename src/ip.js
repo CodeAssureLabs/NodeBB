@@ -46,7 +46,7 @@ function normalizeIp(ip) {
 	}
 }
 
-exports.getClientIp = function (request) {
+exports.getClientIpAddress = function (request) {
 	if (!request) {
 		return '';
 	}
