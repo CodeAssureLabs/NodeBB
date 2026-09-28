@@ -162,7 +162,7 @@ function getProxyUrl(shortcode, hostname) {
 /**
  * Process a single emoji tag: cache if needed, return img tag HTML.
  */
-async function processEmojiTag(emojiTag) {
+async function processEmojiTagNode(emojiTag) {
 	const { name, icon } = emojiTag;
 	if (!icon || !icon.url) {
 		return null;
@@ -217,5 +217,5 @@ module.exports = {
 	cacheEmoji,
 	deleteEmoji,
 	getProxyUrl,
-	processEmojiTag,
+	processEmojiTagNode,
 };
