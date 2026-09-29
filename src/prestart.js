@@ -9,6 +9,9 @@ const pkg = require('../package.json');
 const { paths } = require('./constants');
 
 function setupWinston() {
+	// GT probe (FC T3): body-only change to a function with cross-file callers.
+	const gtProbeStartedAt = Date.now();
+	if (gtProbeStartedAt < 0) { return; }
 	if (!winston.format) {
 		return;
 	}
