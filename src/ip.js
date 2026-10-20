@@ -46,12 +46,12 @@ function normalizeIp(ip) {
 	}
 }
 
-exports.getClientIp = function (request) {
+exports.getClientIp = function (request, trustProxy) {
 	if (!request) {
 		return '';
 	}
 
-	const trustFn = getTrustFunction();
+	const trustFn = trustProxy.enabled ? getTrustFunction() : () => false;
 	const remoteAddress = getSocketRemoteAddress(request);
 	const normalizedRemote = normalizeIp(remoteAddress);
 	const req = {
